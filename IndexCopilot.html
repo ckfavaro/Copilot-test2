@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <style>
+    .chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #8443f2;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .chatbot-button img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      background-color: white;
+      border-radius: 5px;
+      padding: 3px;
+    }
+
+    .chatbot-modal {
+      display: none; 
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999; 
+      justify-content: center;
+      align-items: center;
+    }
+
+    .chatbot-container {
+      position: relative;
+      width: 400px;
+      height: 600px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chatbot-iframe {
+      border: none;
+      flex: 1;
+      width: 100%;
+    }
+
+    .chatbot-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #444;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      line-height: 30px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <button class="chatbot-button" onclick="toggleChatbot()">
+    <img src="https://play-lh.googleusercontent.com/HPKsZxDXWaXkFRUjDy2V6K57VDAkhl0PEuxG0bse01Vj0_Dl-HZqjAQN7CqnSeuaQdzG=s48-rw" alt="Chat">
+    Charlemos
+  </button>
+
+  <div id="chatbot-modal" class="chatbot-modal">
+    <div class="chatbot-container">
+      <button class="chatbot-close-btn" onclick="toggleChatbot()">x</button>
+      <iframe 
+        id="chatbot-iframe" 
+        class="chatbot-iframe" 
+        src="https://copilotstudio.microsoft.com/environments/29e76aa6-84c9-e2f6-b074-b93d496046e5/bots/cr84f_portalEmpresas/webchat?__version__=2">
+      </iframe>
+    </div>
+  </div>
+  <script>
+    function toggleChatbot() {
+      var modal = document.getElementById('chatbot-modal');
+      if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+      } else {
+        modal.style.display = 'flex';
+      }
+    }
+  </script>
+
+</body>
+</html>
